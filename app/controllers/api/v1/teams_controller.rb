@@ -1,5 +1,5 @@
-Class Api::V1::TeamsController < Api::V1::BaseController
-    before_action :set_team, only [:show, :update, :destroy, :add_member, :remove_member]
+class Api::V1::TeamsController < Api::V1::BaseController
+    before_action :set_team, only: [:show, :update, :destroy, :add_member, :remove_member]
     before_action :authorize_team_access, only: [:show, :update, :destroy]
     before_action :authorize_team_admin, only: [:update, :destroy, :add_member, :remove_member]
 
@@ -114,7 +114,7 @@ Class Api::V1::TeamsController < Api::V1::BaseController
             name: team.name,
             description: team.description,
             owner: user_json(team.owner),
-            projects_count: team.projects.count
+            projects_count: team.projects.count,
             created_at: team.created_at
         }
 
